@@ -1,0 +1,1 @@
+export { useSimpleCamera } from "./hooks/useSimpleCamera";
