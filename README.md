@@ -10,6 +10,10 @@ _Well life's too short for clunky APIs! Whether you’re building a photo booth,
 
 **Find it on Github** [https://github.com/ketanip/use-simple-camera](https://github.com/ketanip/use-simple-camera)
 
+**Demo Project Live**: [https://use-simple-camera-demo.vercel.app/](https://use-simple-camera-demo.vercel.app/)
+
+**Demo Project Source Code**: [https://github.com/ketanip/use-simple-camera-demo](https://github.com/ketanip/use-simple-camera-demo)
+
 ## 🚀 **Features**
 
 That'll Make You Go WOW
