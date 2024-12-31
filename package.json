@@ -1,13 +1,12 @@
 {
   "name": "use-simple-camera",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple and easy to use react hook, it can help you capture videos, images and get media devices streams in an easy to use way.",
   "main": "dist/index.js",
   "module": "dist/bundle.esm.js", 
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
   },
   "repository": {
@@ -15,10 +14,20 @@
     "url": "git+https://github.com/ketanip/use-simple-camera.git"
   },
   "keywords": [
-    "Camera",
-    "React",
-    "MediaDevices",
-    "WebAPIs"
+    "camera",
+    "MediaDevices API",
+    "Web-APIs",
+    "video-stream-management",
+    "react-hooks-for-media",
+    "MediaStream API",
+    "Image Capture API",
+    "video-download",
+    "webcam",
+    "react-component",
+    "webrtc",
+    "image",
+    "video-recording",
+    "image-capture"
   ],
   "author": "Ketan Iralepatil",
   "license": "MIT",
@@ -27,15 +36,12 @@
   },
   "homepage": "https://github.com/ketanip/use-simple-camera#readme",
   "peerDependencies": {
-    "react": ">=18.3.1",
-    "react-dom": ">=18.3.1"
+    "react": ">=18.3.1"
     },
   "devDependencies": {
     "rollup": "^4.29.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.7.2",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1"
+    "@types/react": "^18.3.1"
   }
-
 }
