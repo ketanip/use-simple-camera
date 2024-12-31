@@ -1,6 +1,6 @@
 {
   "name": "use-simple-camera",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple and easy to use react hook, it can help you capture videos, images and get media devices streams in an easy to use way.",
   "main": "dist/index.js",
   "module": "dist/bundle.esm.js", 
@@ -26,15 +26,16 @@
     "url": "https://github.com/ketanip/use-simple-camera/issues"
   },
   "homepage": "https://github.com/ketanip/use-simple-camera#readme",
-  "devDependencies": {
+  "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
     "rollup": "^4.29.1",
     "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.7.2"
-  },
-  "dependencies": {
+    "typescript": "^5.7.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2"
   }
+
 }
