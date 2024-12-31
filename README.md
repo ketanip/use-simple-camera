@@ -91,6 +91,7 @@ Here’s the magic you'll have at your fingertips:
 - `videoDevices` – All available video sources.
 - `audioDevices` – All available audio sources.
 - `videoRecordingInProgress` – Are we filming?
+- `videoProcessingStatus` - Are we done processing videos yet?
 
 ### 🔧 **Actions**
 
@@ -108,6 +109,7 @@ Here’s the magic you'll have at your fingertips:
    - `getRecordedVideoBlob`: Get the raw blob of the video.
    - `downloadRecordedVideo`: Save the video locally.
 5. 🎛️ **Custom Streaming**: Combine `getMediaStream` with React refs for custom video streaming, audio-only and video-only streaming.
+6. ✅ **Check video processing status**: Check `videoProcessingStatus` status for any video before downloading/reading it as blob or as base64 format string.
 
 ## ⚙️ **API Reference**
 

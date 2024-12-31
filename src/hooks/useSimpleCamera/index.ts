@@ -34,6 +34,9 @@ export const useSimpleCamera = () => {
         { id: string; data: Blob; processed: boolean }[]
     >([]);
 
+    // Recorded video statuses
+    const [videoProcessingStatus, setVideoProcessingStatus] = useState<{ id: string, status: "processing" | "ready" }[]>([]);
+
     // Use effect to check if permissions are already granted.
     useEffect(() => {
         const checkPermissions = async () => {
@@ -69,6 +72,14 @@ export const useSimpleCamera = () => {
 
         checkPermissions();
     }, []);
+
+    // This use effect check and updated the status of the videos and how they are processed.
+    useEffect(() => {
+        const updateVideoProcessingStatus = () => {
+            setVideoProcessingStatus(videos.map(item => ({ id: item.id, status: item.processed ? "ready" : "processing" })));
+        };
+        updateVideoProcessingStatus();
+    }, [videos]);
 
     /**
      * This function asks user for permission to access cameras and microphone.
@@ -402,6 +413,7 @@ export const useSimpleCamera = () => {
         isCameraActive,
         videoDevicesIDs,
         audioDevicesIDs,
+        videoProcessingStatus,
         videoRecodingInProgress,
 
         // Actions
