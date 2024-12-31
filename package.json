@@ -42,6 +42,6 @@
     "rollup": "^4.29.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.7.2",
-    "@types/react": "^18.3.1"
+    "@types/react": ">=18.3.1"
   }
 }
