@@ -1,6 +1,6 @@
 {
   "name": "use-simple-camera",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple and easy to use react hook, it can help you capture videos, images and get media devices streams in an easy to use way.",
   "main": "dist/index.js",
   "module": "dist/bundle.esm.js", 
