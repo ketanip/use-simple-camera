@@ -1,9 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
-import { CameraControls } from "../types";
+import { useCallback, useEffect, useState } from "react";
+import type { CameraControls } from "../types";
 
-
-export const useCameraControls = (stream: MediaStream | null): CameraControls => {
-  const [capabilities, setCapabilities] = useState<MediaTrackCapabilities | null>(null);
+export const useCameraControls = (
+  stream: MediaStream | null,
+): CameraControls => {
+  const [capabilities, setCapabilities] =
+    useState<MediaTrackCapabilities | null>(null);
   const [settings, setSettings] = useState<MediaTrackSettings | null>(null);
 
   // States
@@ -11,7 +13,9 @@ export const useCameraControls = (stream: MediaStream | null): CameraControls =>
   const [flash, setFlashState] = useState<boolean>(false);
   const [pan, setPanState] = useState<number>(0);
   const [tilt, setTiltState] = useState<number>(0);
-  const [focusMode, setFocusModeState] = useState<'auto' | 'manual' | 'continuous' | 'none'>('none');
+  const [focusMode, setFocusModeState] = useState<
+    "auto" | "manual" | "continuous" | "none"
+  >("none");
   const [focusDistance, setFocusDistanceState] = useState<number>(0);
 
   // Updates capabilities when stream changes
@@ -58,35 +62,53 @@ export const useCameraControls = (stream: MediaStream | null): CameraControls =>
     [stream],
   );
 
-  const setZoom = useCallback(async (value: number) => {
-    await applyConstraint({ zoom: value } as any);
-    setZoomState(value);
-  }, [applyConstraint]);
+  const setZoom = useCallback(
+    async (value: number) => {
+      await applyConstraint({ zoom: value } as any);
+      setZoomState(value);
+    },
+    [applyConstraint],
+  );
 
-  const setFlash = useCallback(async (enable: boolean) => {
-    await applyConstraint({ torch: enable } as any);
-    setFlashState(enable);
-  }, [applyConstraint]);
+  const setFlash = useCallback(
+    async (enable: boolean) => {
+      await applyConstraint({ torch: enable } as any);
+      setFlashState(enable);
+    },
+    [applyConstraint],
+  );
 
-  const setPan = useCallback(async (value: number) => {
-    await applyConstraint({ pan: value } as any);
-    setPanState(value);
-  }, [applyConstraint]);
+  const setPan = useCallback(
+    async (value: number) => {
+      await applyConstraint({ pan: value } as any);
+      setPanState(value);
+    },
+    [applyConstraint],
+  );
 
-  const setTilt = useCallback(async (value: number) => {
-    await applyConstraint({ tilt: value } as any);
-    setTiltState(value);
-  }, [applyConstraint]);
+  const setTilt = useCallback(
+    async (value: number) => {
+      await applyConstraint({ tilt: value } as any);
+      setTiltState(value);
+    },
+    [applyConstraint],
+  );
 
-  const setFocusMode = useCallback(async (mode: 'auto' | 'manual' | 'continuous') => {
-    await applyConstraint({ focusMode: mode } as any);
-    setFocusModeState(mode);
-  }, [applyConstraint]);
+  const setFocusMode = useCallback(
+    async (mode: "auto" | "manual" | "continuous") => {
+      await applyConstraint({ focusMode: mode } as any);
+      setFocusModeState(mode);
+    },
+    [applyConstraint],
+  );
 
-  const setFocusDistance = useCallback(async (value: number) => {
-    await applyConstraint({ focusDistance: value } as any);
-    setFocusDistanceState(value);
-  }, [applyConstraint]);
+  const setFocusDistance = useCallback(
+    async (value: number) => {
+      await applyConstraint({ focusDistance: value } as any);
+      setFocusDistanceState(value);
+    },
+    [applyConstraint],
+  );
 
   return {
     // Current Values
