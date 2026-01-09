@@ -1,6 +1,6 @@
 {
   "name": "use-simple-camera",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Production-ready React Hooks for Camera, Video Recording, QR/Barcode Scanning, Motion Detection, and Audio Analysis. Zero dependencies, fully typed, and easy to use.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
