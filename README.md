@@ -1,18 +1,18 @@
 # 🎥 **Use Simple Camera**
 
-[![NPM Version](https://img.shields.io/npm/v/@ketanip/use-simple-camera.svg?style=flat-square)](https://www.npmjs.com/package/@ketanip/use-simple-camera)
+[![NPM Version](https://img.shields.io/npm/v/use-simple-camera.svg?style=flat-square)](https://www.npmjs.com/package/use-simple-camera)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ketanip/use-simple-camera/ci.yml?branch=main&style=flat-square&label=build)](https://github.com/ketanip/use-simple-camera/actions)
-[![Minzipped Size](https://img.shields.io/bundlephobia/minzip/@ketanip/use-simple-camera?style=flat-square&label=size)](https://bundlephobia.com/package/@ketanip/use-simple-camera)
-[![Dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square)](https://packagephobia.com/result?p=@ketanip/use-simple-camera)
+[![Minzipped Size](https://img.shields.io/bundlephobia/minzip/use-simple-camera?style=flat-square&label=size)](https://bundlephobia.com/package/use-simple-camera)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square)](https://packagephobia.com/result?p/use-simple-camera)
 [![TypeScript](https://img.shields.io/badge/ts-ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Style: Biome](https://img.shields.io/badge/code_style-biome-60a5fa?style=flat-square&logo=biome)](https://biomejs.dev/)
-[![Socket Badge](https://socket.dev/api/badge/npm/package/@ketanip/use-simple-camera)](https://socket.dev/npm/package/@ketanip/use-simple-camera)
-[![npm downloads](https://img.shields.io/npm/dm/@ketanip/use-simple-camera?style=flat-square&label=downloads)](https://www.npmjs.com/package/@ketanip/use-simple-camera)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/use-simple-camera)](https://socket.dev/npm/package/use-simple-camera)
+[![npm downloads](https://img.shields.io/npm/dm/use-simple-camera?style=flat-square&label=downloads)](https://www.npmjs.com/package/use-simple-camera)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera?ref=badge_shield)
 [![Snyk](https://snyk.io/test/github/ketanip/use-simple-camera/badge.svg)](https://snyk.io/test/github/ketanip/use-simple-camera)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ketanip/use-simple-camera/badge)](https://securityscorecards.dev/viewer/?uri=github.com/ketanip/use-simple-camera)
+
 [![Gitpod Ready](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/ketanip/use-simple-camera)
 [![semantic-release](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release&style=flat-square)](https://github.com/semantic-release/semantic-release)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat-square)](CODE_OF_CONDUCT.md)
@@ -35,11 +35,11 @@
 ## 📦 **Installation**
 
 ```bash
-npm install @ketanip/use-simple-camera
+npm install /use-simple-camera
 # or
-pnpm add @ketanip/use-simple-camera
+pnpm add /use-simple-camera
 # or
-yarn add @ketanip/use-simple-camera
+yarn add /use-simple-camera
 ```
 
 ---
@@ -49,7 +49,7 @@ yarn add @ketanip/use-simple-camera
 The `useSimpleCamera` hook is the entry point that composes most features, but you can use individual hooks as standalone primitives.
 
 ```tsx
-import { useSimpleCamera } from "@ketanip/use-simple-camera";
+import { useSimpleCamera } from "/use-simple-camera";
 
 const App = () => {
   const { stream, ref, error, startCamera, captureImage } = useSimpleCamera();
