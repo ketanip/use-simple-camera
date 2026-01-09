@@ -1,258 +1,173 @@
 # 🎥 **Use Simple Camera**
 
-🛠️ Use Simple Camera is a lightweight React hook that simplifies interacting with browser APIs for capturing audio and video from media devices. It abstracts the complexities of managing permissions, media streams, and recording operations, providing a seamless developer experience for building camera-enabled applications.
+[![NPM Version](https://img.shields.io/npm/v/@ketanip/use-simple-camera.svg?style=flat-square)](https://www.npmjs.com/package/@ketanip/use-simple-camera)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ketanip/use-simple-camera/ci.yml?branch=main&style=flat-square&label=build)](https://github.com/ketanip/use-simple-camera/actions)
+[![Minzipped Size](https://img.shields.io/bundlephobia/minzip/@ketanip/use-simple-camera?style=flat-square&label=size)](https://bundlephobia.com/package/@ketanip/use-simple-camera)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square)](https://packagephobia.com/result?p=@ketanip/use-simple-camera)
+[![TypeScript](https://img.shields.io/badge/ts-ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Style: Biome](https://img.shields.io/badge/code_style-biome-60a5fa?style=flat-square&logo=biome)](https://biomejs.dev/)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/@ketanip/use-simple-camera)](https://socket.dev/npm/package/@ketanip/use-simple-camera)
+[![npm downloads](https://img.shields.io/npm/dm/@ketanip/use-simple-camera?style=flat-square&label=downloads)](https://www.npmjs.com/package/@ketanip/use-simple-camera)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera?ref=badge_shield)
+[![Snyk](https://snyk.io/test/github/ketanip/use-simple-camera/badge.svg)](https://snyk.io/test/github/ketanip/use-simple-camera)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ketanip/use-simple-camera/badge)](https://securityscorecards.dev/viewer/?uri=github.com/ketanip/use-simple-camera)
+[![Gitpod Ready](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/ketanip/use-simple-camera)
+[![semantic-release](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release&style=flat-square)](https://github.com/semantic-release/semantic-release)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat-square)](CODE_OF_CONDUCT.md)
 
-Whether you're creating a video conferencing app, a custom video recording tool, or an image capture utility, Use Simple Camera equips you with all the essential functionalities in one easy-to-use package.
+**Use Simple Camera** is a production-ready, zero-dependency React hook library for comprehensive camera and media handling. It provides a robust set of hooks for video recording, local/remote storage, computer vision (barcodes, motion detection), and hardware controls (zoom, flash, pan, tilt).
 
-_Well life's too short for clunky APIs! Whether you’re building a photo booth, a live streamer, or a casual media app, **Use Simple Camera** is your new BFF._
+## ✨ Features
 
-**Find it on NPM** [https://www.npmjs.com/package/use-simple-camera](https://www.npmjs.com/package/use-simple-camera)
+- 📸 **Easy Camera Access**: Simple API to get camera stream, switch cameras, and capture images.
+- 🎥 **Video Recording**: Record video/audio blobs with `MediaRecorder` API.
+- 💾 **Storage**: Save recordings to IndexedDB or upload via XHR/S3.
+- 🔍 **Computer Vision**: Built-in hooks for Barcode detection and Motion detection.
+- 🛠 **Hardware Controls**: Control Zoom, Flash, Pan, and Tilt if supported.
+- 🎙 **Audio Utilities**: Monitor microphone volume levels in real-time.
+- 📱 **Orientation**: Detect device orientation for responsive UI.
+- 🌲 **Tree Shakeable**: Import only the hooks you need.
 
-**Find it on Github** [https://github.com/ketanip/use-simple-camera](https://github.com/ketanip/use-simple-camera)
+---
 
-**Demo Project Live**: [https://use-simple-camera-demo.vercel.app/](https://use-simple-camera-demo.vercel.app/)
+## 📦 **Installation**
 
-**Demo Project Source Code**: [https://github.com/ketanip/use-simple-camera-demo](https://github.com/ketanip/use-simple-camera-demo)
+```bash
+npm install @ketanip/use-simple-camera
+# or
+pnpm add @ketanip/use-simple-camera
+# or
+yarn add @ketanip/use-simple-camera
+```
 
-## 🚀 **Features**
+---
 
-That'll Make You Go WOW
+## ⚡ **Quick Start**
 
-1. 🛂 **Ask for Permissions** - No awkward surprises; we ensure users are in the loop.
-2. 📸 **Capture Images** - Snap stunning photos like a pro.
-3. 🎥 **Record Multiple Videos** - Be Spielberg, minus the camera crew.
-4. 💾 **Blob It, Download It, Name It** - Recorded videos come as blobs, URLs, or downloads with custom names. They are stored hassle free in browser memory without you needing to handle all that stuff manually.
-
-## 🤷‍♂️ **Why I Created It?**
-
-I was working extensively once with these APIs for a project and that experience annoyed me a lot, so I decided to write custom code that time.
-
-I was planning once again to work with same APIs so not to feel that same unpleasant experience again I decided to create this library (hook).
-
-## Basic Example
+The `useSimpleCamera` hook is the entry point that composes most features, but you can use individual hooks as standalone primitives.
 
 ```tsx
-import { useSimpleCamera } from "use-simple-camera";
-import { useState, useRef } from "react";
+import { useSimpleCamera } from "@ketanip/use-simple-camera";
 
-const MyComponent = () => {
-  const [imageURL, setImageURL] = useState("");
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const {
-    acquirePermissions,
-    captureImage,
-    startCamera,
-    stopCamera,
-    recordVideo,
-    stopVideoRecording,
-    downloadRecordedVideo,
-  } = useSimpleCamera();
+const App = () => {
+  const { stream, ref, error, startCamera, captureImage } = useSimpleCamera();
+  
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div>
-      <button onClick={acquirePermissions}>Permissions</button>
-      <button onClick={startCamera}>Start</button>
-      <button onClick={stopCamera}>Stop</button>
-      <button onClick={() => captureImage().then(setImageURL)}>Capture</button>
-      <button onClick={() => recordVideo("vid1")}>Record</button>
-      <button onClick={stopVideoRecording}>Stop Recording</button>
-      <button onClick={() => downloadRecordedVideo("vid1")}>Download</button>
-
-      {imageURL && <img src={imageURL} alt="Captured" />}
-      {videoRef && <video ref={videoRef} controls />}
+       <video ref={ref} autoPlay muted playsInline />
+       <button onClick={() => captureImage()}>Take Photo</button>
     </div>
   );
 };
 ```
 
-## 🧩 **How It Works**
+---
 
-This hook packs a punch with intuitive, flexible functions. Here’s the action-packed lineup:
+## 📚 **API Documentation**
 
-- **acquirePermissions** – Requests user permissions to access camera and microphone.
-- **startCamera** – Starts the camera, enabling media streaming.
-- **stopCamera** – Stops the camera and releases media resources.
-- **captureImage** – Captures an image from the video feed.
-- **recordVideo** – Starts recording a video.
-- **stopVideoRecording** – Stops video recording.
-- **getRecordedVideoURL** – Retrieves the recorded video as a URL.
-- **getRecordedVideoBlob** – Retrieves the recorded video as a Blob.
-- **downloadRecordedVideo** – Downloads the recorded video.
-- **getMediaStream** – Returns a custom media stream based on video/audio tracks.
+### 1. `useSimpleCamera`
 
-## 🪄 **Hook Returns**
+The main hook for managing camera lifecycle, permissions, and stream state.
 
-Here’s the magic you'll have at your fingertips:
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `stream` | `MediaStream \| null` | The active camera stream. |
+| `startCamera` | `(constraints?) => Promise` | Manually starts the camera. |
+| `stopCamera` | `() => void` | Stops all tracks and releases camera. |
+| `captureImage` | `(options?) => string` | Captures a base64 image. |
+| `error` | `CameraError \| null` | Typed error object if something fails. |
+| `isCameraActive` | `boolean` | True if stream is active. |
+| `switchCamera` | `() => void` | Toggles between front and back cameras. |
 
-### 🟢 **Stateful Goodies**
+### 2. `useRecorder`
 
-- `permissionAcquired` – Do we have the green light?
-- `isCameraActive` – Is the camera rolling?
-- `videoDevices` – All available video sources.
-- `audioDevices` – All available audio sources.
-- `videoRecordingInProgress` – Are we filming?
-- `videoProcessingStatus` - Are we done processing videos yet?
+Handles video and audio recording with support for separate streams and callbacks.
 
-### 🔧 **Actions**
+```tsx
+import { useRecorder } from "use-simple-camera";
+const { startRecording, stopRecording, isRecording } = useRecorder(stream);
+```
 
-- **Core**: `acquirePermissions`, `startCamera`, `stopCamera`, `getMediaStream`
-- **Image**: `captureImage`
-- **Video**: `recordVideo`, `stopVideoRecording`, `getRecordedVideoURL`, `getRecordedVideoBlob`, `downloadRecordedVideo`
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `startRecording` | `(options?) => void` | Starts recording media. Options: `mode`, `onComplete`. |
+| `stopRecording` | `() => void` | Stops recording and triggers `onComplete` with blob. |
+| `takeSnapshot` | `() => Promise<Blob>` | Captures a high-res still photo. |
 
-### 🧙 **Pro Tips**
+### 3. `useStorage`
 
-1. 💡 **Permissions First**: Always call `acquirePermissions` before anything else.
-2. 🛑 **Stop Camera Gracefully**: Use `stopCamera` to release media devices and avoid leaving them active.
-3. 🖼️ **Capture Image**: `captureImage` gives you a Base64 blob of your snapshot.
-4. 🎥 **Manage Recorded Videos**:
-   - `getRecordedVideoURL`: Get a URL to the video.
-   - `getRecordedVideoBlob`: Get the raw blob of the video.
-   - `downloadRecordedVideo`: Save the video locally.
-5. 🎛️ **Custom Streaming**: Combine `getMediaStream` with React refs for custom video streaming, audio-only and video-only streaming.
-6. ✅ **Check video processing status**: Check `videoProcessingStatus` status for any video before downloading/reading it as blob or as base64 format string.
+Manage local persistence (IndexedDB) and remote uploads (S3/XHR).
 
-## ⚙️ **API Reference**
+```tsx
+import { useStorage } from "use-simple-camera";
+const { saveToLocal, uploadToRemote } = useStorage();
+```
 
-### 1. `acquirePermissions()`
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `saveToLocal` | `(blob, name, opts) => Promise` | Save blob to IndexedDB with optional retention. |
+| `getFromLocal` | `(name) => Promise<Blob>` | Retrieve blob from IndexedDB. |
+| `uploadToRemote` | `(blob, opts) => Promise` | Upload to signed URL. Options: headers, timeout, etc. |
 
-- **Description**: Asks the user for permission to access the camera and microphone.
-- **Returns**: `Promise<void>`
-- **Example**:
+### 4. `useCameraControls`
 
-  ```typescript
-  await acquirePermissions();
-  ```
+Control hardware features like Zoom, Flash, Pan, and Tilt.
 
-### 2. `startCamera(config: object)`
+```tsx
+import { useCameraControls } from "use-simple-camera";
+const { zoom, setZoom, flash, setFlash, supports } = useCameraControls(stream);
+```
 
-- **Description**: Starts the camera to capture video and audio.
-- **Parameters**:
-  - `config`: Provide `MediaStreamConstraints` for the media input. (optional)
-  - Read more at [MDN Docs about it](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#constraints).
-- **Returns**: `Promise<void>`
-- **Example**:
+### 5. `useBarcodeScanner`
 
-  ```typescript
-  await startCamera();
-  ```
+Detects QR codes and Barcodes in real-time.
 
-### 3. `stopCamera()`
+```tsx
+const { barcodes, isScanning } = useBarcodeScanner(stream, { formats: ['qr_code'] });
+```
 
-- **Description**: Stops the camera and releases all media devices.
-- **Returns**: `Promise<void>`
-- **Example**:
+### 6. `useMotionDetection`
 
-  ```typescript
-  await stopCamera();
-  ```
+Detects movement in the video feed using pixel differencing.
 
-### 4. `captureImage(videoTrackID?: string)`
+```tsx
+const { motionDetected } = useMotionDetection(stream, { threshold: 10 });
+```
 
-- **Description**: Captures an image from the specified video track. If no `videoTrackID` is provided, it uses the first available video device.
-- **Returns**: `Promise<string>` – A Base64-encoded string representing the captured image.
-- **Example**:
+### 7. `useAudioLevel`
 
-  ```typescript
-  const imageURL = await captureImage();
-  <img src={imageURL} alt="Captured" />;
-  ```
+Monitors real-time microphone volume.
 
-### 5. `recordVideo(id: string, config?: RecordVideoConfig)`
+```tsx
+const { volume } = useAudioLevel(stream); // 0-100
+```
 
-- **Description**: Starts recording a video.
-- **Parameters**:
-  - `id`: Unique identifier for the recorded video.
-  - `config`: Optional configuration object for custom video settings.
-    - `videoStreamID`: The ID of the video stream to record.
-    - `audioStreamID`: The ID of the audio stream to record.
-    - `customMimeType`: Optional MIME type for the video recording (e.g., `'video/webm'`).
-- **Returns**: `Promise<void>`
-- **Example**:
+### 8. `useOrientation`
 
-  ```typescript
-   await recordVideo("submission-1234", {
-    videoStreamID: "video-stream-1",
-    audioStreamID: "audio-stream-1",
-    customMimeType: "video/codec=vp9".
-   })
-  ```
+Tracks device screen orientation.
 
-### 6. `stopVideoRecording()`
+```tsx
+const { orientation, angle } = useOrientation(); // 'portrait' | 'landscape'
+```
 
-- **Description**: Stops the ongoing video recording.
-- **Returns**: `Promise<void>`
-- **Example**:
+### 9. `useMediaDevices`
 
-  ```typescript
-  await stopVideoRecording();
-  ```
+Enumerates available audio and video inputs.
 
-### 7. `getRecordedVideoURL(videoID: string)`
+```tsx
+const { videoDevices, audioDevices } = useMediaDevices();
+```
 
-- **Description**: Retrieves the blob URL of the recorded video by its `videoID`.
-- **Returns**: `string` – The blob URL of the recorded video.
-- **Example**:
-
-  ```typescript
-  const videoURL = getRecordedVideoURL("video1");
-  <video src={videoURL} controls />;
-  ```
-
-### 8. `getRecordedVideoBlob(videoID: string)`
-
-- **Description**: Retrieves the recorded video as a Blob by its `videoID`.
-- **Returns**: `Blob` – The raw Blob of the recorded video.
-- **Example**:
-
-  ```typescript
-  const videoBlob = getRecordedVideoBlob("video1");
-  const url = URL.createObjectURL(videoBlob);
-  ```
-
-### 9. `downloadRecordedVideo(videoID: string, filename?: string)`
-
-- **Description**: Downloads the recorded video by its `videoID`, with an optional custom filename. **Include file extension. If you haven't changed codec use webm as file extension.**
-- **Returns**: `void`
-- **Example**:
-
-  ```typescript
-  downloadRecordedVideo("video1", "my-video.webm");
-  ```
-
-### 10. `getMediaStream(config: GetMediaStreamConfig)`
-
-- **Description**: Retrieves a media stream based on the provided video and audio track IDs.
-- **Parameters**:
-  - `config`: The configuration for selecting the media stream, which includes `videoID` and `audioID`.
-- **Returns**: `Promise<MediaStream>` – The media stream for custom use.
-- **Example**:
-
-  ```typescript
-  const mediaStream = await getMediaStream({
-    videoID: "camera1",
-    audioID: "microphone1",
-  });
-  videoRef.current.srcObject = mediaStream;
-  ```
+---
 
 ## 🤝 **Contributing**
 
-We welcome contributions! If you'd like to help improve this project, here’s how you can contribute:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes and write tests.
-4. Open a pull request with a detailed description of your changes.
-5. Ensure that all tests pass before submitting.
+## 📄 **License**
 
-## 🛡️ **License**
-
-The License for this project is located in `License` file. This project is licensed under MIT License.
-
-## ❓ **Face some Issues ?**
-
-If you encounter any issues or have questions, please open a GitHub issue, and I'll be happy to assist you!
-
-**This is still first version of this library so please be careful while using it your application, test it extensively for your application.**
-
-**✨ Ready to simplify your media game? Let’s roll!**
+This project is licensed under the MIT License.

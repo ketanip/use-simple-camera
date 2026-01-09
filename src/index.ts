@@ -1,1 +1,10 @@
 export { useSimpleCamera } from "./hooks/useSimpleCamera";
+export { useRecorder } from "./hooks/useRecorder";
+export { useStorage } from "./hooks/useStorage";
+export { useCameraControls } from "./hooks/useCameraControls";
+export { useBarcodeScanner } from "./hooks/useBarcodeScanner";
+export { useMotionDetection } from "./hooks/useMotionDetection";
+export { useAudioLevel } from "./hooks/useAudioLevel";
+export { useOrientation } from "./hooks/useOrientation";
+export { useMediaDevices } from "./hooks/useMediaDevices";
+export * from "./types";
