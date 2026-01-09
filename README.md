@@ -1,4 +1,6 @@
 # 🎥 **Use Simple Camera**
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera?ref=badge_shield)
+
 
 🛠️ Use Simple Camera is a lightweight React hook that simplifies interacting with browser APIs for capturing audio and video from media devices. It abstracts the complexities of managing permissions, media streams, and recording operations, providing a seamless developer experience for building camera-enabled applications.
 
@@ -248,6 +250,9 @@ We welcome contributions! If you'd like to help improve this project, here’s h
 ## 🛡️ **License**
 
 The License for this project is located in `License` file. This project is licensed under MIT License.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fketanip%2Fuse-simple-camera?ref=badge_large)
 
 ## ❓ **Face some Issues ?**
 
